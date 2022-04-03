@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Belma</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600"
+            rel="stylesheet">
+        <!-- Required Fremwork -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="assets/css/bootstrap/css/bootstrap.min.css">
+        <!-- themify-icons line icon -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="assets/icon/themify-icons/themify-icons.css">
+        <!-- ico font -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="assets/icon/icofont/css/icofont.css">
+        <!-- Style.css -->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="assets/css/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="font-awesome/css/font-awesome.min.css"/>
+
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+        <script src="node_modules/chart.js/dist/chart.js"></script>
+
+        <style>
+            body {
+                background-image: url("C:/Users/HOME/OneDrive - Faculty of Information Technologies/Desktop/Belma-IOT/pozadina.jpg");
+                background-size: cover;
+                text-align: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: navy;
+            }
+        </style>
+    </head>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyD0dLymOpO0QPLPywGtJd1e8q40-XTT8nY",
+          authDomain: "iot-belma.firebaseapp.com",
+          databaseURL: "https://iot-belma-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "iot-belma",
+          storageBucket: "iot-belma.appspot.com",
+          messagingSenderId: "1064378832548",
+          appId: "1:1064378832548:web:5f830cb23b36c267beb831"
+        };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+    <body>
+
+        <div class="main-body">
+            <div class="page-wrapper"
+            
+            >
+
+                <div class="col-6 .col-md-4" style="font: bolder; background-color: oldlace;margin-left: 25%;">
+                    <h4 id="temp"></h4>    
+                </div>
+                <div class="col-6 .col-md-4" style="font: bolder; background-color: oldlace;margin-left: 25%;">
+                    <h4 id="vlaz"></h4>    
+                </div>
+                            </div>
+                        </div>
+                        <!-- card1 end -->
+                        
+                        <script>
+
+                            firebase
+                                .database()
+                                .ref('/')
+                                .on('value', (snapshot) => {
+                                    $('#temp').html("Trenutna temperatura iznosi: "+snapshot.child('Temperatura').val());
+                                    $('#vlaz').html("Trenutna vlaznost zraka iznosi: "+snapshot.child('Vlaznost').val());
+                                })
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+
+</html>

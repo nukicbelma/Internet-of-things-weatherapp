@@ -1,0 +1,2 @@
+Arduino cita podatke sa dht11 senzora za temp i vlaznost. Te podatke formatira i salje na serijal port. WinForms app detektuje te podatke, filtrira ih ,
+i salje na firebase realtime bazu podataka. WebApp cita te podatke sa firebase baze i ispisuje ih korisniku na web formi. 
